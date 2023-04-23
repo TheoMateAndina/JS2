@@ -16,6 +16,7 @@ function inscribirAlumnos() {
 			nombre,
 			apellido,
 			edad,
+			nacimiento,
 			dni,
 			curso,
 		};
@@ -59,7 +60,7 @@ function buscar() {
 	let mensaje = "";
 
 	filtrar.forEach((n) => {
-		`
+		mensaje += `
 		NOMBRE: ${n.nombre}
 		APELLIDO: ${n.apellido}
 		EDAD: ${n.edad}
@@ -75,12 +76,15 @@ let filtrado = prompt("Si desea filtar una búsqueda de alumnos según su fecha 
 
 while (filtrado != "no" && filtrado != "si") {
   alert("Por favor ingresar Si o No");
-  filtrado = parseInt(prompt("ingrese la fecha de nacimiento que desea filtrar"));
+  filtrado = prompt("¿Desea filtar una búsqueda de alumnos según su fecha de nacimiento? Si o No.").toLowerCase();
 }
 
 if (filtrado == "si") {
   let alumnosSSS = alumnos.map(
-    (n) => `
+    (n) => 
+        `
+        ALUMNO:
+
         NOMBRE: ${n.nombre}
 		APELLIDO: ${n.apellido}
 		EDAD: ${n.edad}
@@ -93,5 +97,5 @@ if (filtrado == "si") {
   alert(alumnosSSS);
   buscar();
 } else if (filtrado == "no") {
-  alert("LA BUSQUEDA TERMINADO");
+  alert("Su búsqueda a finalizado.");
 }
